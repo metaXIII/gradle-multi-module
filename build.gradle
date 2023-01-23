@@ -1,19 +1,34 @@
-plugins {
-    id 'java'
+buildscript {
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:1.1.0"
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.0.2")
+    }
+
+    repositories {
+        mavenCentral()
+    }
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
+allprojects {
+    group 'com.metaxiii.fr'
+    version '1.0.0'
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+subprojects {
+    apply plugin: 'java'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
-test {
-    useJUnitPlatform()
+project(':first-child') {
 }
