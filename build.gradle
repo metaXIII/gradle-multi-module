@@ -1,16 +1,6 @@
-buildscript {
-    ext {
-        //put version of javatuples etc...
-    }
-
-    dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.1.4"
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:3.2.1")
-    }
-
-    repositories {
-        mavenCentral()
-    }
+plugins {
+    id 'org.springframework.boot' apply false
+    id 'io.spring.dependency-management' apply false
 }
 
 allprojects {
@@ -25,8 +15,8 @@ subprojects {
     }
 
     dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.1'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.1'
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.3'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.0.3'
     }
 
     test {
